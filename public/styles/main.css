@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=REM&family=Roboto:wght@400;700&display=swap');
+
+body {
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(51, 51, 51));
+}
+
+.header-nb{
+    overflow: hidden;
+    font-family: 'Tilt Neon', cursive;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* position: fixed;
+    width: 100vw; */
+    background-image: linear-gradient(rgb(110, 105, 105), rgb(0, 0, 0));
+}
+.nb-left{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: aqua;
+}
+.main-img{
+    padding: 0;
+    width: 5rem;
+    height: 5rem;
+    transition: 0.5s;
+}
+.main-img:hover{
+    width: 7rem;
+    height: 7rem;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.container h1 {
+    padding: 4rem 0;
+    font-size: 3rem;
+    color: rgb(160, 241, 241);
+    font-family: 'Borel', cursive;
+}
+
+form {
+    width: 80%;
+}
+
+.form-control {
+    border-radius: 1.5rem;
+    transition: ease-in-out 0.3s;
+}
+
+.form-control:hover {
+    border-radius: 0.5rem;
+}
+
+.btn {
+    background-color: rgb(70, 70, 251);
+    color: rgb(53, 247, 247);
+}

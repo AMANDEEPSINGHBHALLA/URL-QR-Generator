@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Tilt+Neon&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Tilt Neon', cursive;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(51, 51, 51));
+    background-size: cover;
+    color: aqua;
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.asb_img{
+    height: 7rem;
+    width: 7rem;
+    margin: 2rem;
+}
+
+.wrapper img {
+    width: 80%;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.wrapper{
+    /* position: relative; */
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(251, 103, 103, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1440px) {
+    .middle{
+        margin-bottom: 5rem;
+    }
+}
+
+@media only screen and (max-width: 821px) {
+    body{
+        background-size: 1800px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    body{
+        background-size: 2100px;
+    }
+    .wrapper{
+        width: 350px;
+        height: 400px;
+    }
+}
