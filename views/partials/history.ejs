@@ -1,0 +1,15 @@
+<div class="main_hist">
+<h2 class="history">History</h2>
+
+
+<div class="hist_box">
+    <% if (locals.findP) { %>
+        <% findP.forEach(function(item) { %>
+            <p><%= item.link %></p>
+        <% }) %>
+    <% } else { %>
+        <p>No Data</p>
+    <% } %>
+</div>
+
+</div>
