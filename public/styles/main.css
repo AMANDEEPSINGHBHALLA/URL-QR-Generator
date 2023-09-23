@@ -61,3 +61,24 @@ form {
     background-color: rgb(70, 70, 251);
     color: rgb(53, 247, 247);
 }
+
+.main_hist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.history {
+    margin: 1rem;
+    color: rgb(53, 247, 247);
+}
+
+.hist_box p {
+    color: rgb(244, 150, 150);
+    transition: 0.5s;
+}
+.hist_box p:hover {
+    font-size: 2rem;
+    color: aqua;
+}
