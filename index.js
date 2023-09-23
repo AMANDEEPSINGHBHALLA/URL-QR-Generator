@@ -13,7 +13,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 //connecting database
-mongoose.connect("mongodb://127.0.0.1:27017/urlqrDB")
+mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB")
 .then(()=> {
     console.log("successfully connected");
 })
