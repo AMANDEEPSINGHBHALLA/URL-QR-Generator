@@ -12,15 +12,6 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-//connecting database
-mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB")
-.then(()=> {
-    console.log("successfully connected");
-})
-.catch((err)=> {
-    console.log("Error", err);
-});
-
 //schema
 const urlSchema = new mongoose.Schema({
     link: {
@@ -33,6 +24,14 @@ const urlSchema = new mongoose.Schema({
 const uLink = mongoose.model("uLink", urlSchema);
 
 app.get("/", (req, res)=> {
+    //connecting database
+mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB")
+.then(()=> {
+    console.log("successfully connected");
+})
+.catch((err)=> {
+    console.log("Error", err);
+});
     uLink.find()
     .then((sData)=> {
         if (sData.length == 0) {
