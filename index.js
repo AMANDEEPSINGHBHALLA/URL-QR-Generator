@@ -24,8 +24,11 @@ const urlSchema = new mongoose.Schema({
 const uLink = mongoose.model("uLink", urlSchema);
 
 app.get("/", (req, res)=> {
+    const ip = req.ip;
+    console.log(ip);
+    
     //connecting database
-mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB")
+mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB" + ip)
 .then(()=> {
     console.log("successfully connected");
 })
