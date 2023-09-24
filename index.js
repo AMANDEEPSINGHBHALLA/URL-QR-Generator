@@ -24,7 +24,7 @@ const urlSchema = new mongoose.Schema({
 const uLink = mongoose.model("uLink", urlSchema);
 
 app.get("/", (req, res)=> {
-    const ip = req.ip;
+    var ip = req.ip;
     console.log(ip);
     
     //connecting database
