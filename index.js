@@ -24,8 +24,25 @@ const urlSchema = new mongoose.Schema({
 const uLink = mongoose.model("uLink", urlSchema);
 
 app.get("/", (req, res) => {
-    var ip = req.ip;
-    var databaseName = "urlqrDB_" + ip.replace(/[^a-zA-Z0-9]/g, ""); // Use IP address as part of the database name
+    const ip = req.ip;
+    const userAgent = req.get('User-Agent');
+
+    // Create a unique identifier for the device based on IP address and user agent
+    const deviceId = crypto.createHash('md5').update(ip + userAgent).digest('hex');
+
+    // Truncate or hash the deviceId to ensure it fits within the constraints
+    const truncatedDeviceId = deviceId.substring(0, 10); // Adjust the length as needed
+
+    const databaseName = "urlqrDB_" + truncatedDeviceId;
+
+    // connecting to the database
+    mongoose.connect(`mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/${databaseName}`)
+    .then(() => {
+        console.log("successfully connected");
+    })
+    .catch((err) => {
+        console.log("Error", err);
+    });
 
     // connecting to the database
     mongoose.connect(`mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/${databaseName}`)
