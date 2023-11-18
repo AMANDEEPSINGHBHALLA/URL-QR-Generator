@@ -23,18 +23,30 @@ const urlSchema = new mongoose.Schema({
 //model
 const uLink = mongoose.model("uLink", urlSchema);
 
-app.get("/", (req, res)=> {
+app.get("/", (req, res) => {
     var ip = req.ip;
-    console.log(ip);
+    var databaseName = "urlqrDB_" + ip.replace(/[^a-zA-Z0-9]/g, ""); // Use IP address as part of the database name
+
+    // connecting to the database
+    mongoose.connect(`mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/${databaseName}`)
+    .then(() => {
+        console.log("successfully connected");
+    })
+    .catch((err) => {
+        console.log("Error", err);
+    });
+// app.get("/", (req, res)=> {
+//     var ip = req.ip;
+//     console.log(ip);
     
-    //connecting database
-mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB" + ip)
-.then(()=> {
-    console.log("successfully connected");
-})
-.catch((err)=> {
-    console.log("Error", err);
-});
+//     //connecting database
+// mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB" + ip)
+// .then(()=> {
+//     console.log("successfully connected");
+// })
+// .catch((err)=> {
+//     console.log("Error", err);
+// });
     uLink.find()
     .then((sData)=> {
         if (sData.length == 0) {
