@@ -24,47 +24,18 @@ const urlSchema = new mongoose.Schema({
 //model
 const uLink = mongoose.model("uLink", urlSchema);
 
-app.get("/", (req, res) => {
-    const ip = req.ip;
-    const userAgent = req.get('User-Agent');
-
-    // Create a unique identifier for the device based on IP address and user agent
-    const deviceId = crypto.createHash('md5').update(ip + userAgent).digest('hex');
-
-    // Truncate or hash the deviceId to ensure it fits within the constraints
-    const truncatedDeviceId = deviceId.substring(0, 10); // Adjust the length as needed
-
-    const databaseName = "urlqrDB_" + truncatedDeviceId;
-
-    // connecting to the database
-    mongoose.connect(`mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/${databaseName}`)
-    .then(() => {
-        console.log("successfully connected");
-    })
-    .catch((err) => {
-        console.log("Error", err);
-    });
-
-    // connecting to the database
-    mongoose.connect(`mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/${databaseName}`)
-    .then(() => {
-        console.log("successfully connected");
-    })
-    .catch((err) => {
-        console.log("Error", err);
-    });
-// app.get("/", (req, res)=> {
-//     var ip = req.ip;
-//     console.log(ip);
+app.get("/", (req, res)=> {
+    var ip = req.ip;
+    console.log(ip);
     
-//     //connecting database
-// mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB" + ip)
-// .then(()=> {
-//     console.log("successfully connected");
-// })
-// .catch((err)=> {
-//     console.log("Error", err);
-// });
+    //connecting database
+mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB" + ip)
+.then(()=> {
+    console.log("successfully connected");
+})
+.catch((err)=> {
+    console.log("Error", err);
+});
     uLink.find()
     .then((sData)=> {
         if (sData.length == 0) {
