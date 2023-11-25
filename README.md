@@ -36,7 +36,7 @@ The application is deployed using [Render](https://render.com/). The live site i
 git clone https://github.com/AMANDEEPSINGHBHALLA/URL-QR-Generator.git
 
 INSTALL DEPENDENCIES
-cd AMANDEEPSINGHBHALLA
+cd URL-QR-Generator.git
 npm install
 
 1. SETUP MongoDB ATLAS
