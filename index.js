@@ -29,7 +29,7 @@ app.get("/", (req, res)=> {
     console.log(ip);
     
     //connecting database
-mongoose.connect("mongodb+srv://admin-asb:Aman210402@cluster0.s7hqqgo.mongodb.net/urlqrDB" + ip)
+mongoose.connect("mongodb+srv://amandeep:Rayner_65@cluster0.zapl7fl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" + ip)
 .then(()=> {
     console.log("successfully connected");
 })
@@ -76,3 +76,4 @@ app.post("/url", (req, res)=> {
 app.listen(port, ()=> {
     console.log(`running on port ${port}`);
 });
+
